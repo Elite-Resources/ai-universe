@@ -3,1397 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Universe - Directory dei Migliori Strumenti di Intelligenza Artificiale</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Trend AI - Browser LLM</title>
     <style>
         :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-card: #1e293b;
-            --accent-cyan: #38bdf8;
-            --accent-purple: #a855f7;
-            --accent-pink: #ec4899;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --border-glow: rgba(56, 189, 248, 0.3);
-            --gradient-text: linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #ec4899 100%);
-            --gradient-card: linear-gradient(145deg, rgba(56, 189, 248, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
-            --shadow-glow: 0 0 30px rgba(56, 189, 248, 0.15);
-            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
-            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --bg-color: #050505;
+            --text-color: #e0e0e0;
+            --accent-color: #00f2ff;
+            --secondary-color: #1a1a1a;
+            --warning-color: #ffcc00;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 16px 0;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(56, 189, 248, 0.1);
-        }
-
-        header .container {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            height: 100vh;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-text);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .logo span {
-            background: var(--gradient-text);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 32px;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition-smooth);
-            position: relative;
-        }
-
-        nav a:hover {
-            color: var(--accent-cyan);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-cyan);
-            transition: var(--transition-smooth);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 24px 60px;
-            position: relative;
+            flex-direction: column;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 30%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
-            animation: aurora 20s ease-in-out infinite;
-        }
-
-        @keyframes aurora {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(2%, 2%) rotate(1deg); }
-            66% { transform: translate(-1%, 1%) rotate(-1deg); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: rgba(56, 189, 248, 0.1);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            border-radius: 50px;
-            font-size: 0.875rem;
-            color: var(--accent-cyan);
-            margin-bottom: 24px;
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.6s ease-out 0.1s both;
-        }
-
-        .hero h1 .gradient-text {
-            background: var(--gradient-text);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-description {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 32px;
-            animation: fadeInUp 0.6s ease-out 0.2s both;
-        }
-
-        .search-container {
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto 24px;
-            animation: fadeInUp 0.6s ease-out 0.3s both;
-        }
-
-        .search-bar {
-            width: 100%;
-            padding: 18px 24px 18px 56px;
-            background: var(--bg-secondary);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            border-radius: 16px;
-            font-size: 1rem;
-            color: var(--text-primary);
-            font-family: inherit;
-            transition: var(--transition-smooth);
-            outline: none;
-        }
-
-        .search-bar::placeholder {
-            color: var(--text-muted);
-        }
-
-        .search-bar:focus {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1), var(--shadow-glow);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            pointer-events: none;
-        }
-
-        .filter-tags {
+        #app {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 16px;
-            animation: fadeInUp 0.6s ease-out 0.35s both;
-        }
-
-        .filter-tag {
-            padding: 10px 20px;
-            background: rgba(56, 189, 248, 0.08);
-            border: 1px solid rgba(56, 189, 248, 0.15);
-            border-radius: 50px;
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            user-select: none;
-        }
-
-        .filter-tag:hover {
-            background: rgba(56, 189, 248, 0.15);
-            border-color: rgba(56, 189, 248, 0.3);
-            color: var(--accent-cyan);
-        }
-
-        .filter-tag.active {
-            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
-            border-color: transparent;
-            color: white;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
-        }
-
-        .results-count {
-            text-align: center;
-            margin-bottom: 32px;
-            font-size: 0.9375rem;
-            color: var(--text-muted);
-            animation: fadeInUp 0.6s ease-out 0.4s both;
-        }
-
-        .results-count span {
-            color: var(--accent-cyan);
-            font-weight: 600;
-        }
-
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 48px;
-            margin-top: 40px;
-            animation: fadeInUp 0.6s ease-out 0.5s both;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: var(--gradient-text);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 48px;
-        }
-
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .section-subtitle {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            max-width: 600px;
+            flex-direction: column;
+            height: 100%;
+            max-width: 900px;
             margin: 0 auto;
+            width: 100%;
+            padding: 20px;
         }
 
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        /* Header / Warning Box */
+        .warning-box {
+            background: rgba(255, 204, 0, 0.1);
+            border: 1px solid var(--warning-color);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--warning-color);
+            text-align: center;
+        }
+
+        /* Loading UI */
+        #loading-overlay {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             gap: 20px;
         }
 
-        .tool-card {
-            background: var(--bg-card);
-            border-radius: 18px;
-            padding: 24px;
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition-smooth);
-            cursor: pointer;
-            border: 1px solid rgba(56, 189, 248, 0.1);
-            opacity: 0;
-            animation: fadeInUp 0.5s ease-out forwards;
-        }
-
-        .tool-card.hidden {
-            display: none;
-        }
-
-        .tool-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--gradient-card);
-            opacity: 0;
-            transition: var(--transition-smooth);
-        }
-
-        .tool-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-text);
-            opacity: 0;
-            transition: var(--transition-smooth);
-        }
-
-        .tool-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(56, 189, 248, 0.3);
-            box-shadow: var(--shadow-glow), var(--shadow-card);
-        }
-
-        .tool-card:hover::before {
-            opacity: 1;
-        }
-
-        .tool-card:hover::after {
-            opacity: 1;
-        }
-
-        .card-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            margin-bottom: 14px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .loader-title {
             font-size: 1.5rem;
-            flex-shrink: 0;
-            transition: var(--transition-smooth);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-color);
         }
 
-        .tool-card:hover .card-icon {
-            transform: scale(1.08) rotate(3deg);
-        }
-
-        .card-icon.chatgpt { background: linear-gradient(135deg, #10a37f 0%, #0d7d5f 100%); }
-        .card-icon.midjourney { background: linear-gradient(135deg, #5865F2 0%, #3b48d8 100%); }
-        .card-icon.perplexity { background: linear-gradient(135deg, #ff6b35 0%, #f73c00 100%); }
-        .card-icon.elevenlabs { background: linear-gradient(135deg, #1a1a1a 0%, #333 100%); border: 1px solid rgba(255,255,255,0.1); }
-        .card-icon.claude { background: linear-gradient(135deg, #d4a574 0%, #b8956c 100%); }
-        .card-icon.runway { background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%); }
-        .card-icon.jasper { background: linear-gradient(135deg, #ff5733 0%, #c70039 100%); }
-        .card-icon.firefly { background: linear-gradient(135deg, #ff0000 0%, #ff4500 100%); }
-        .card-icon.notion { background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%); border: 1px solid rgba(0,0,0,0.1); }
-        .card-icon.descript { background: linear-gradient(135deg, #5a4ee6 0%, #7b77e8 100%); }
-        .card-icon.gamma { background: linear-gradient(135deg, #00d4aa 0%, #00b894 100%); }
-        .card-icon.copy { background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%); }
-        .card-icon.otter { background: linear-gradient(135deg, #f5a623 0%, #e8912d 100%); }
-        .card-icon.synthesia { background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%); }
-        .card-icon.mubert { background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); }
-        .card-icon.stablecog { background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); }
-        .card-icon.leonardo { background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); }
-        .card-icon.tome { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); }
-
-        .card-title-row {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .card-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .card-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            width: fit-content;
-        }
-
-        .tag-free {
-            background: rgba(16, 185, 129, 0.15);
-            color: #10b981;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-
-        .tag-premium {
-            background: rgba(168, 85, 247, 0.15);
-            color: #a855f7;
-            border: 1px solid rgba(168, 85, 247, 0.3);
-        }
-
-        .tag-freemium {
-            background: rgba(251, 191, 36, 0.15);
-            color: #fbbf24;
-            border: 1px solid rgba(251, 191, 36, 0.3);
-        }
-
-        .card-description {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            line-height: 1.6;
-            margin-bottom: 16px;
-            position: relative;
-            z-index: 1;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
+        .progress-container {
+            width: 100%;
+            max-width: 400px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
             overflow: hidden;
-        }
-
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             position: relative;
-            z-index: 1;
         }
 
-        .card-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 9px 18px;
-            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-size: 0.8125rem;
-            font-weight: 600;
-            transition: var(--transition-smooth);
+        #progress-bar {
+            height: 100%;
+            width: 0%;
+            background: var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-color);
+            transition: width 0.3s ease;
         }
 
-        .card-link:hover {
-            transform: translateX(4px);
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+        #status-text {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 10px;
         }
 
-        .card-link svg {
-            transition: var(--transition-smooth);
-        }
-
-        .card-link:hover svg {
-            transform: translateX(3px);
-        }
-
-        .card-category {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .newsletter-section {
-            background: var(--bg-secondary);
-            border-top: 1px solid rgba(56, 189, 248, 0.1);
-            border-bottom: 1px solid rgba(56, 189, 248, 0.1);
-            padding: 80px 0;
-            margin: 40px 0 0;
-        }
-
-        .newsletter-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .newsletter-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 1.75rem;
-        }
-
-        .newsletter-content h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .newsletter-content p {
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-            font-size: 1rem;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 12px;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        .newsletter-input {
+        /* Chat UI */
+        #chat-interface {
+            display: none;
+            flex-direction: column;
             flex: 1;
-            padding: 14px 20px;
-            background: var(--bg-primary);
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            overflow: hidden;
+            border: 1px solid var(--secondary-color);
             border-radius: 12px;
-            font-size: 0.9375rem;
-            color: var(--text-primary);
-            font-family: inherit;
-            outline: none;
-            transition: var(--transition-smooth);
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        .newsletter-input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .newsletter-input:focus {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
-        }
-
-        .newsletter-btn {
-            padding: 14px 28px;
-            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
-            border: none;
-            border-radius: 12px;
-            color: white;
-            font-size: 0.9375rem;
-            font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            white-space: nowrap;
-        }
-
-        .newsletter-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
-        }
-
-        .newsletter-note {
-            margin-top: 16px;
-            font-size: 0.8125rem;
-            color: var(--text-muted);
-        }
-
-        footer {
-            background: var(--bg-secondary);
-            border-top: 1px solid rgba(56, 189, 248, 0.1);
-            padding: 60px 0 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 48px;
-            margin-bottom: 48px;
-        }
-
-        .footer-brand {
-            max-width: 300px;
-        }
-
-        .footer-brand .logo {
-            margin-bottom: 16px;
-        }
-
-        .footer-brand p {
-            color: var(--text-secondary);
-            font-size: 0.9375rem;
-            line-height: 1.7;
-        }
-
-        .footer-links h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-        }
-
-        .footer-links ul {
-            list-style: none;
+        #chat-history {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
         }
 
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9375rem;
-            transition: var(--transition-smooth);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            line-height: 1.5;
+            font-size: 0.95rem;
         }
 
-        .footer-links a:hover {
-            color: var(--accent-cyan);
+        .user-message {
+            align-self: flex-end;
+            background: var(--accent-color);
+            color: #000;
         }
 
-        .footer-bottom {
-            padding-top: 30px;
-            border-top: 1px solid rgba(56, 189, 248, 0.1);
+        .ai-message {
+            align-self: flex-start;
+            background: var(--secondary-color);
+            color: var(--text-color);
+            border: 1px solid #333;
+        }
+
+        .input-area {
+            padding: 20px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
+            gap: 10px;
+            border-top: 1px solid var(--secondary-color);
         }
 
-        .footer-bottom p {
-            color: var(--text-muted);
-            font-size: 0.875rem;
+        #user-input {
+            flex: 1;
+            background: transparent;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 12px;
+            color: var(--text-color);
+            outline: none;
+            transition: border-color 0.3s;
         }
 
-        .social-links {
-            display: flex;
-            gap: 12px;
+        #user-input:focus {
+            border-color: var(--accent-color);
         }
 
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: rgba(56, 189, 248, 0.1);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: var(--transition-smooth);
-        }
-
-        .social-link:hover {
-            background: var(--accent-cyan);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
-        }
-
-        .coffee-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 0.875rem;
-            transition: var(--transition-smooth);
-        }
-
-        .coffee-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
-        }
-
-        .scroll-indicator {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--bg-secondary);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-cyan);
+        #send-btn {
+            background: var(--accent-color);
+            color: #000;
+            border: none;
+            padding: 0 20px;
+            border-radius: 8px;
             cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition-smooth);
-            z-index: 999;
+            font-weight: bold;
+            transition: opacity 0.3s;
         }
 
-        .scroll-indicator.visible {
-            opacity: 1;
-            visibility: visible;
+        #send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
-        .scroll-indicator:hover {
-            background: var(--accent-cyan);
-            color: white;
-            transform: translateY(-3px);
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
         }
-
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-secondary);
+        ::-webkit-scrollbar-track {
+            background: transparent;
         }
-
-        .no-results-icon {
-            font-size: 3rem;
-            margin-bottom: 16px;
-        }
-
-        .no-results h3 {
-            font-size: 1.25rem;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-
-        .no-results p {
-            font-size: 0.9375rem;
-            color: var(--text-muted);
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-
-            .hero {
-                padding: 100px 16px 50px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .stats {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .filter-tags {
-                gap: 8px;
-            }
-
-            .filter-tag {
-                padding: 8px 14px;
-                font-size: 0.8125rem;
-            }
-
-            .tools-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .newsletter-btn {
-                width: 100%;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-brand {
-                max-width: 100%;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 90px 12px 40px;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-
-            .tool-card {
-                padding: 18px;
-            }
-
-            .card-icon {
-                width: 46px;
-                height: 46px;
-                font-size: 1.25rem;
-            }
-
-            .newsletter-section {
-                padding: 60px 0;
-            }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <a href="#" class="logo">
-                <div class="logo-icon">✨</div>
-                <span>AI Universe</span>
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#tools">Strumenti</a></li>
-                    <li><a href="#about">Chi Siamo</a></li>
-                    <li><a href="#contact">Contatti</a></li>
-                </ul>
-            </nav>
+    <div id="app">
+        <div class="warning-box">
+            Al primo avvio verranno scaricati circa 1.5GB nella cache del tuo browser. Funzionerà localmente e gratuitamente per sempre.
         </div>
-    </header>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
-                Il meglio dell'Intelligenza Artificiale
+        <div id="loading-overlay">
+            <h1 class="loader-title">Inizializzazione AI</h1>
+            <div class="progress-container">
+                <div id="progress-bar"></div>
             </div>
-            <h1>
-                Scopri i <span class="gradient-text">Migliori Strumenti AI</span> per il 2026
-            </h1>
-            <p class="hero-description">
-                Una selezione curata dei tool di Intelligenza Artificiale più potenti e innovativi. 
-                Trova quello perfetto per le tue esigenze.
-            </p>
-            <div class="search-container">
-                <i data-lucide="search" class="search-icon" style="width: 20px; height: 20px;"></i>
-                <input type="text" class="search-bar" id="searchInput" placeholder="Cerca uno strumento AI...">
-            </div>
-            <div class="filter-tags" id="filterTags">
-                <span class="filter-tag active" data-category="all">Tutti</span>
-                <span class="filter-tag" data-category="scrittura">✍️ Scrittura</span>
-                <span class="filter-tag" data-category="immagini">🎨 Immagini</span>
-                <span class="filter-tag" data-category="video">🎬 Video</span>
-                <span class="filter-tag" data-category="programmazione">💻 Programmazione</span>
-                <span class="filter-tag" data-category="produttivita">⚡ Produttività</span>
-                <span class="filter-tag" data-category="audio">🎙️ Audio</span>
-            </div>
-            <div class="results-count" id="resultsCount">
-                Mostrando <span>15</span> strumenti
-            </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Strumenti Selezionati</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">50K+</div>
-                    <div class="stat-label">Utenti Attivi</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">Feedback Positivi</div>
-                </div>
+            <div id="status-text">Sto scaricando i pesi del modello...</div>
+        </div>
+
+        <div id="chat-interface">
+            <div id="chat-history"></div>
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Chiedimi qualcosa..." autocomplete="off">
+                <button id="send-btn">Invia</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="section" id="tools">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">🔥 Strumenti in Evidenza</h2>
-                <p class="section-subtitle">
-                    I tool AI più popolari e performanti del momento, selezionati per qualità e innovazione.
-                </p>
-            </div>
-            <div class="tools-grid" id="toolsGrid">
-            </div>
-            <div class="no-results" id="noResults" style="display: none;">
-                <div class="no-results-icon">🔍</div>
-                <h3>Nessuno strumento trovato</h3>
-                <p>Prova a cercare con termini diversi o seleziona un'altra categoria.</p>
-            </div>
-        </div>
-    </section>
+    <script type="module">
+        import { CreateWebWorkerEngine } from "https://esm.sh/@mlc-ai/web-llm";
 
-    <section class="newsletter-section" id="about">
-        <div class="container">
-            <div class="newsletter-content">
-                <div class="newsletter-icon">📬</div>
-                <h2>Resta Aggiornato</h2>
-                <p>
-                    Iscriviti alla nostra newsletter per ricevere ogni settimana le novità sugli strumenti AI 
-                    più innovativi e le migliori risorse per potenziare il tuo lavoro.
-                </p>
-                <form class="newsletter-form" id="newsletterForm">
-                    <input type="email" class="newsletter-input" placeholder="La tua email..." required>
-                    <button type="submit" class="newsletter-btn">Iscriviti</button>
-                </form>
-                <p class="newsletter-note">Nessuno spam, solo contenuti di qualità. Cancella l'iscrizione in qualsiasi momento.</p>
-            </div>
-        </div>
-    </section>
+        const modelId = "gemma-2b-it-q4f16_1-MLC";
+        
+        const progressBar = document.getElementById('progress-bar');
+        const statusText = document.getElementById('status-text');
+        const loadingOverlay = document.getElementById('loading-overlay');
+        const chatInterface = document.getElementById('chat-interface');
+        const chatHistory = document.getElementById('chat-history');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
 
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <div class="logo-icon">✨</div>
-                        <span>AI Universe</span>
-                    </a>
-                    <p>
-                        La tua fonte definitiva per scoprire i migliori strumenti di Intelligenza Artificiale. 
-                        Selezioniamo con cura ogni tool per qualità, innovazione e utilità.
-                    </p>
-                </div>
-                <div class="footer-links">
-                    <h4>Risorse</h4>
-                    <ul>
-                        <li><a href="#tools">Tutti gli Strumenti</a></li>
-                        <li><a href="#">Guide AI</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Newsletter</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Contatti</h4>
-                    <ul>
-                        <li><a href="mailto:hello@aiuniverse.it"><i data-lucide="mail" style="width: 16px; height: 16px;"></i> hello@aiuniverse.it</a></li>
-                        <li><a href="#"><i data-lucide="twitter" style="width: 16px; height: 16px;"></i> @AIUniverse</a></li>
-                        <li><a href="#"><i data-lucide="instagram" style="width: 16px; height: 16px;"></i> @AIUniverse_it</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 AI Universe. Tutti i diritti riservati.</p>
-                <a href="https://buymeacoffee.com" target="_blank" class="coffee-link">
-                    ☕ Supportaci su Buy Me a Coffee
-                </a>
-                <div class="social-links">
-                    <a href="#" class="social-link" aria-label="Twitter">
-                        <i data-lucide="twitter" style="width: 18px; height: 18px;"></i>
-                    </a>
-                    <a href="#" class="social-link" aria-label="GitHub">
-                        <i data-lucide="github" style="width: 18px; height: 18px;"></i>
-                    </a>
-                    <a href="#" class="social-link" aria-label="LinkedIn">
-                        <i data-lucide="linkedin" style="width: 18px; height: 18px;"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
+        let engine;
 
-    <button class="scroll-indicator" onclick="scrollToTop()" aria-label="Torna in alto">
-        <i data-lucide="chevron-up" style="width: 22px; height: 22px;"></i>
-    </button>
+        async function init() {
+            try {
+                // Callback per monitorare il progresso del caricamento
+                const initProgressCallback = (report) => {
+                    const progress = Math.round(report.progress * 100);
+                    progressBar.style.width = `${progress}%`;
+                    statusText.innerText = report.text;
+                    
+                    if (progress >= 100) {
+                        setTimeout(() => {
+                            loadingOverlay.style.display = 'none';
+                            chatInterface.style.display = 'flex';
+                            addMessage("IA", "Ciao! Sono pronto ad aiutarti localmente. Cosa desideri sapere?");
+                        }, 500);
+                    }
+                };
 
-    <script>
-        const toolsData = [
-            {
-                id: 1,
-                title: "ChatGPT",
-                description: "L'assistente AI più avanzato di OpenAI. Genera testi, risponde a domande complesse, scrive codice e molto altro con un linguaggio naturale incredibilmente fluido.",
-                category: "scrittura",
-                tag: "free",
-                icon: "chatgpt",
-                emoji: "🤖",
-                link: "https://chat.openai.com"
-            },
-            {
-                id: 2,
-                title: "Midjourney",
-                description: "Crea immagini straordinarie da descrizioni testuali. Arte digitale di qualità professionale, illustrazioni, concept art e molto altro in pochi secondi.",
-                category: "immagini",
-                tag: "premium",
-                icon: "midjourney",
-                emoji: "🎨",
-                link: "https://midjourney.com"
-            },
-            {
-                id: 3,
-                title: "Perplexity",
-                description: "Il motore di ricerca AI che risponde direttamente alle tue domande con fonti citate. Ricerca intelligente con informazioni sempre aggiornate in tempo reale.",
-                category: "produttivita",
-                tag: "freemium",
-                icon: "perplexity",
-                emoji: "🔍",
-                link: "https://perplexity.ai"
-            },
-            {
-                id: 4,
-                title: "ElevenLabs",
-                description: "Synthesizer vocale AI all'avanguardia. Clona voci, crea narrazioni naturali in 29 lingue e genera audio realistico per podcast, video e applicazioni.",
-                category: "audio",
-                tag: "freemium",
-                icon: "elevenlabs",
-                emoji: "🎙️",
-                link: "https://elevenlabs.io"
-            },
-            {
-                id: 5,
-                title: "Claude",
-                description: "L'assistente AI di Anthropic progettato per essere sicuro e utile. Analizza documenti, scrive contenuti creativi, programma e reasoning avanzato con 200K token context.",
-                category: "scrittura",
-                tag: "free",
-                icon: "claude",
-                emoji: "📝",
-                link: "https://claude.ai"
-            },
-            {
-                id: 6,
-                title: "Runway",
-                description: "Piattaforma creativa per video AI di nuova generazione. Genera, modifica e trasforma video con effetti magici. Ideale per filmmaker, creator e professionisti.",
-                category: "video",
-                tag: "premium",
-                icon: "runway",
-                emoji: "🎬",
-                link: "https://runwayml.com"
-            },
-            {
-                id: 7,
-                title: "Jasper",
-                description: "Piattaforma di scrittura AI enterprise-grade per team. Genera contenuti marketing, blog post, copy pubblicitari e molto altro mantenendo il brand voice coerente.",
-                category: "scrittura",
-                tag: "premium",
-                icon: "jasper",
-                emoji: "✍️",
-                link: "https://jasper.ai"
-            },
-            {
-                id: 8,
-                title: "Adobe Firefly",
-                description: "Il generatore di immagini AI di Adobe, integrato perfettamente con Photoshop e Premiere. Crea e modifica immagini con prompt testuali in pochi click.",
-                category: "immagini",
-                tag: "freemium",
-                icon: "firefly",
-                emoji: "🔥",
-                link: "https://adobe.com/firefly"
-            },
-            {
-                id: 9,
-                title: "Notion AI",
-                description: "L'assistente AI integrato in Notion. Riassume documenti, genera contenuti, risponde a domande e automatizza i flussi di lavoro direttamente nel tuo workspace.",
-                category: "produttivita",
-                tag: "premium",
-                icon: "notion",
-                emoji: "📓",
-                link: "https://notion.so"
-            },
-            {
-                id: 10,
-                title: "Descript",
-                description: "Editor video e podcast alimentato da AI. Modifica tramite trascrizione, rimuovi filler words, crea sottotitoli automatici e clone vocale in tempo reale.",
-                category: "video",
-                tag: "premium",
-                icon: "descript",
-                emoji: "🎥",
-                link: "https://descript.com"
-            },
-            {
-                id: 11,
-                title: "Gamma",
-                description: "Crea presentazioni, documenti e landing page stunning con l'AI. Genera design professionali e contenuti coinvolgenti partendo da semplici prompt di testo.",
-                category: "produttivita",
-                tag: "freemium",
-                icon: "gamma",
-                emoji: "🚀",
-                link: "https://gamma.app"
-            },
-            {
-                id: 12,
-                title: "Copy.ai",
-                description: "Scrittore AI specializzato in copy marketing e vendite. Genera descrizioni prodotti, email campaigns, social media posts e molto altro in oltre 25 lingue.",
-                category: "scrittura",
-                tag: "freemium",
-                icon: "copy",
-                emoji: "📋",
-                link: "https://copy.ai"
-            },
-            {
-                id: 13,
-                title: "Otter.ai",
-                description: "Assistente per meeting che trascrive, riassume e condivide conversazioni in tempo reale. Ideale per team distribuiti e note di lezioni o conferenze.",
-                category: "audio",
-                tag: "freemium",
-                icon: "otter",
-                emoji: "🦦",
-                link: "https://otter.ai"
-            },
-            {
-                id: 14,
-                title: "Synthesia",
-                description: "Piattaforma per creare video con avatar AI professionali. Scegli tra 140+ avatar diversi e genera video realistici in 120+ lingue senza telecamera.",
-                category: "video",
-                tag: "premium",
-                icon: "synthesia",
-                emoji: "🎭",
-                link: "https://synthesia.io"
-            },
-            {
-                id: 15,
-                title: "Mubert",
-                description: "Generatore di musica AI in tempo reale. Crea tracce audio uniche per video, podcast, app e giochi. Musica royalty-free generata algoritmicamente.",
-                category: "audio",
-                tag: "freemium",
-                icon: "mubert",
-                emoji: "🎵",
-                link: "https://mubert.com"
-            },
-            {
-                id: 16,
-                title: "Stable Diffusion",
-                description: "Modello open-source per generazione immagini di alta qualità. Creazione artistica avanzata, inpainting, outpainting e controllo preciso del processo.",
-                category: "immagini",
-                tag: "free",
-                icon: "stablecog",
-                emoji: "🖼️",
-                link: "https://stability.ai"
-            },
-            {
-                id: 17,
-                title: "Leonardo.ai",
-                description: "Piattaforma per creare assets visivi game-ready con AI. Genera personaggi, texture, ambientazioni e concetti artistici con stile consistente.",
-                category: "immagini",
-                tag: "freemium",
-                icon: "leonardo",
-                emoji: "🎮",
-                link: "https://leonardo.ai"
-            },
-            {
-                id: 18,
-                title: "GitHub Copilot",
-                description: "Assistente AI per programmatori direttamente nel tuo IDE. Suggerimenti intelligenti, completamento codice e debug automatico in tempo reale.",
-                category: "programmazione",
-                tag: "premium",
-                icon: "copy",
-                emoji: "💻",
-                link: "https://github.com/features/copilot"
-            },
-            {
-                id: 19,
-                title: "Tome",
-                description: "Crea presentazioni narrative guidate da AI. Trasforma qualsiasi argomento in una storyboard visiva con immagini generate e design responsive.",
-                category: "produttivita",
-                tag: "freemium",
-                icon: "tome",
-                emoji: "📖",
-                link: "https://tome.app"
-            }
-        ];
-
-        let currentCategory = 'all';
-        let searchQuery = '';
-
-        function getTagClass(tag) {
-            switch(tag) {
-                case 'free': return 'tag-free';
-                case 'premium': return 'tag-premium';
-                case 'freemium': return 'tag-freemium';
-                default: return 'tag-free';
-            }
-        }
-
-        function getTagLabel(tag) {
-            switch(tag) {
-                case 'free': return 'Gratis';
-                case 'premium': return 'Premium';
-                case 'freemium': return 'Freemium';
-                default: return tag;
-            }
-        }
-
-        function getCategoryLabel(category) {
-            const labels = {
-                'scrittura': '✍️ Scrittura',
-                'immagini': '🎨 Immagini',
-                'video': '🎬 Video',
-                'programmazione': '💻 Programmazione',
-                'produttivita': '⚡ Produttività',
-                'audio': '🎙️ Audio'
-            };
-            return labels[category] || category;
-        }
-
-        function generateCard(tool, index) {
-            const tagClass = getTagClass(tool.tag);
-            const tagLabel = getTagLabel(tool.tag);
-            
-            return `
-                <article class="tool-card" data-id="${tool.id}" data-category="${tool.category}" style="animation-delay: ${index * 0.05}s">
-                    <div class="card-header">
-                        <div class="card-icon ${tool.icon}">${tool.emoji}</div>
-                        <div class="card-title-row">
-                            <h3 class="card-title">${tool.title}</h3>
-                            <span class="card-tag ${tagClass}">${tagLabel}</span>
-                        </div>
-                    </div>
-                    <p class="card-description">${tool.description}</p>
-                    <div class="card-footer">
-                        <span class="card-category">
-                            ${getCategoryLabel(tool.category)}
-                        </span>
-                        <a href="${tool.link}" target="_blank" class="card-link">
-                            Vai al Tool
-                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
-                        </a>
-                    </div>
-                </article>
-            `;
-        }
-
-        function renderTools() {
-            const grid = document.getElementById('toolsGrid');
-            const noResults = document.getElementById('noResults');
-            const resultsCount = document.getElementById('resultsCount');
-            
-            let filteredTools = toolsData;
-
-            if (currentCategory !== 'all') {
-                filteredTools = filteredTools.filter(tool => tool.category === currentCategory);
-            }
-
-            if (searchQuery.trim() !== '') {
-                const query = searchQuery.toLowerCase().trim();
-                filteredTools = filteredTools.filter(tool => 
-                    tool.title.toLowerCase().includes(query) ||
-                    tool.description.toLowerCase().includes(query)
+                // Caricamento del motore in un Web Worker per non bloccare la UI
+                engine = await CreateWebWorkerEngine(
+                    new Worker(
+                        new URL("https://esm.sh/@mlc-ai/web-llm/dist/worker.js", import.meta.url),
+                        { type: "module" }
+                    ),
+                    modelId,
+                    { initProgressCallback }
                 );
-            }
 
-            if (filteredTools.length === 0) {
-                grid.innerHTML = '';
-                noResults.style.display = 'block';
-                resultsCount.innerHTML = `Nessuno strumento trovato`;
-            } else {
-                noResults.style.display = 'none';
-                grid.innerHTML = filteredTools.map((tool, index) => generateCard(tool, index)).join('');
-                resultsCount.innerHTML = `Mostrando <span>${filteredTools.length}</span> strumenti`;
-                lucide.createIcons();
+            } catch (error) {
+                console.error(error);
+                statusText.innerText = "Errore durante il caricamento: " + error.message;
+                statusText.style.color = "#ff4444";
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            lucide.createIcons();
+        function addMessage(sender, text) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${sender === 'User' ? 'user-message' : 'ai-message'}`;
+            msgDiv.innerText = text;
+            chatHistory.appendChild(msgDiv);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
 
-            const scrollIndicator = document.querySelector('.scroll-indicator');
-            const searchInput = document.getElementById('searchInput');
-            const filterTags = document.querySelectorAll('.filter-tag');
-            const newsletterForm = document.getElementById('newsletterForm');
+        async function handleSend() {
+            const text = userInput.value.trim();
+            if (!text || !engine) return;
 
-            renderTools();
+            userInput.value = '';
+            addMessage("User", text);
+            
+            // Crea il contenitore per la risposta dell'IA
+            const aiMsgDiv = document.createElement('div');
+            aiMsgDiv.className = 'message ai-message';
+            aiMsgDiv.innerText = "...";
+            chatHistory.appendChild(aiMsgDiv);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
 
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 500) {
-                    scrollIndicator.classList.add('visible');
-                } else {
-                    scrollIndicator.classList.remove('visible');
-                }
-            });
+            sendBtn.disabled = true;
 
-            searchInput.addEventListener('input', function(e) {
-                searchQuery = e.target.value;
-                renderTools();
-            });
-
-            searchInput.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'scale(1.02)';
-            });
-
-            searchInput.addEventListener('blur', function() {
-                this.parentElement.style.transform = 'scale(1)';
-            });
-
-            filterTags.forEach(tag => {
-                tag.addEventListener('click', function() {
-                    filterTags.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    currentCategory = this.dataset.category;
-                    renderTools();
+            try {
+                const chunks = await engine.chat.completions.create({
+                    messages: [{ role: "user", content: text }],
+                    stream: true,
                 });
-            });
 
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const input = this.querySelector('input');
-                const btn = this.querySelector('button');
-                const originalText = btn.textContent;
-                
-                btn.textContent = '✓ Iscritto!';
-                btn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
-                input.value = '';
-                
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = '';
-                }, 3000);
-            });
+                let fullText = "";
+                for await (const chunk of chunks) {
+                    const content = chunk.choices[0]?.delta?.content || "";
+                    fullText += content;
+                    aiMsgDiv.innerText = fullText;
+                    chatHistory.scrollTop = chatHistory.scrollHeight;
+                }
+            } catch (error) {
+                console.error(error);
+                aiMsgDiv.innerText = "Si è verificato un errore durante la generazione.";
+            } finally {
+                sendBtn.disabled = false;
+                userInput.focus();
+            }
+        }
+
+        sendBtn.addEventListener('click', handleSend);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSend();
         });
 
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
+        // Avvia l'inizializzazione
+        init();
     </script>
 </body>
 </html>
